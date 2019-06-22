@@ -23,4 +23,11 @@ class BowlingGameTest {
 
         assertThat(bowlingGame.score).isEqualTo(8)
     }
+
+    @Test
+    fun `scoring 10 in one frame ends the frame`() {
+        bowlingGame.roll(10)
+
+        assertThat(bowlingGame.frame).isEqualTo(2)
+    }
 }

@@ -9,4 +9,12 @@ class BowlingGameTest {
 
         assertThat(bowlingGame.score).isEqualTo(0)
     }
+
+    @Test
+    fun `bowls score of 5`() {
+        val bowlingGame = BowlingGame()
+
+        bowlingGame.roll(5)
+        assertThat(bowlingGame.score).isEqualTo(5)
+    }
 }

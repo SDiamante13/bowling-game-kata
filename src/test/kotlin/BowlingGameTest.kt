@@ -25,5 +25,6 @@ class BowlingGameTest {
         bowlingGame.roll(2)
 
         assertThat(bowlingGame.frames[0].firstRoll).isEqualTo(5)
+        assertThat(bowlingGame.frames[0].secondRoll).isEqualTo(2)
     }
 }

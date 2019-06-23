@@ -7,6 +7,8 @@ data class BowlingGame(var score: Int = 0) {
 
         if (currentFrame.firstRoll == null) {
             currentFrame.firstRoll = pins
+        } else {
+            currentFrame.secondRoll = pins
         }
         score += pins
     }

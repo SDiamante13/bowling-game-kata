@@ -9,8 +9,10 @@ data class BowlingGame(var score: Int = 0) {
             currentFrame.firstRoll = pins
         } else {
             currentFrame.secondRoll = pins
+            currentFrame.frameTotal = currentFrame.firstRoll!! + currentFrame.secondRoll!!
+            score += currentFrame.frameTotal!!
+            currentFrameIndex++
         }
-        score += pins
     }
 }
 

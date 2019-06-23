@@ -13,6 +13,7 @@ data class BowlingGame(var score: Int = 0) {
             currentFrame.frameTotal = currentFrame.firstRoll!! + currentFrame.secondRoll!!
 
             if (currentFrame.frameTotal == 10) currentFrame.spareIndicator = true
+
             score += currentFrame.frameTotal!!
             currentFrameIndex++
         }
@@ -21,6 +22,10 @@ data class BowlingGame(var score: Int = 0) {
     private fun calculateFirstRoll(pins: Int) {
         currentFrame.firstRoll = pins
 
+        if (pins == 10) {
+            currentFrameIndex++
+            currentFrame.strikeIndicator = true
+        }
         addSparePinsToTotal(pins)
     }
 
@@ -36,4 +41,5 @@ data class Frame(
     var firstRoll: Int? = null,
     var secondRoll: Int? = null,
     var frameTotal: Int? = null,
-    var spareIndicator: Boolean = false)
+    var spareIndicator: Boolean = false,
+    var strikeIndicator: Boolean = false)

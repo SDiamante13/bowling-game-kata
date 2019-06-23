@@ -49,4 +49,13 @@ class BowlingGameTest {
         for (times in 1..17) bowlingGame.roll(0)
         assertThat(bowlingGame.score).isEqualTo(16)
     }
+
+//    @Test
+//    fun `a strike in the first frame and a 7 total in the next frame, scores 24`() {
+//        bowlingGame.roll(10)
+//        bowlingGame.roll(5)
+//        bowlingGame.roll(2)
+//        for (times in 1..17) bowlingGame.roll(0)
+//        assertThat(bowlingGame.score).isEqualTo(24)
+//    }
 }

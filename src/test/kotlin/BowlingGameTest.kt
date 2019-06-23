@@ -18,4 +18,12 @@ class BowlingGameTest {
         bowlingGame.roll(4)
         assertThat(bowlingGame.score).isEqualTo(16)
     }
+
+    @Test
+    fun `rolls of 5 and 2 should go to the first frame`() {
+        bowlingGame.roll(5)
+        bowlingGame.roll(2)
+
+        assertThat(bowlingGame.frames[0].firstRoll).isEqualTo(5)
+    }
 }

@@ -1,8 +1,13 @@
 data class BowlingGame(var score: Int = 0) {
     var frames = listOf(Frame(), Frame())
-    var currentFrame: Int = 1
+    var currentFrameIndex: Int = 0
 
     fun roll(pins: Int) {
+        val currentFrame = frames[currentFrameIndex]
+
+        if (currentFrame.firstRoll == null) {
+            currentFrame.firstRoll = pins
+        }
         score += pins
     }
 }

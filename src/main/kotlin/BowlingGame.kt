@@ -20,7 +20,7 @@ data class BowlingGame(var score: Int = 0) {
 
     private fun calculateFirstRoll(pins: Int) {
         currentFrame.firstRoll = pins
-        
+
         addSparePinsToTotal(pins)
     }
 

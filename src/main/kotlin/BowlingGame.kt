@@ -11,6 +11,8 @@ data class BowlingGame(var score: Int = 0) {
         } else {
             currentFrame.secondRoll = pins
             currentFrame.frameTotal = currentFrame.firstRoll!! + currentFrame.secondRoll!!
+
+            if (currentFrame.frameTotal == 10) currentFrame.spareIndicator = true
             score += currentFrame.frameTotal!!
             currentFrameIndex++
         }
@@ -20,4 +22,5 @@ data class BowlingGame(var score: Int = 0) {
 data class Frame(
     var firstRoll: Int? = null,
     var secondRoll: Int? = null,
-    var frameTotal: Int? = null)
+    var frameTotal: Int? = null,
+    var spareIndicator: Boolean = false)

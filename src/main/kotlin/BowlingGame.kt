@@ -1,5 +1,5 @@
 data class BowlingGame(var score: Int = 0) {
-    var frames = listOf(Frame(), Frame())
+    var frames = listOf(Frame(), Frame(), Frame(), Frame(), Frame(), Frame(), Frame(), Frame(), Frame(), Frame())
     var currentFrameIndex: Int = 0
     lateinit var currentFrame: Frame
 

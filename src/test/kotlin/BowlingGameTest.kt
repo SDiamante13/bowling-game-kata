@@ -27,4 +27,11 @@ class BowlingGameTest {
         assertThat(bowlingGame.frames[0].firstRoll).isEqualTo(5)
         assertThat(bowlingGame.frames[0].secondRoll).isEqualTo(2)
     }
+
+    @Test
+    fun `all 1s should have a total score of 20 by end of game`() {
+        for (times in 1..20) bowlingGame.roll(1)
+        assertThat(bowlingGame.score).isEqualTo(20)
+
+    }
 }

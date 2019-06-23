@@ -47,6 +47,6 @@ class BowlingGameTest {
         bowlingGame.roll(5)
         bowlingGame.roll(3)
         for (times in 1..17) bowlingGame.roll(0)
-        assertThat(bowlingGame.score).isEqualTo(13)
+        assertThat(bowlingGame.score).isEqualTo(16)
     }
 }

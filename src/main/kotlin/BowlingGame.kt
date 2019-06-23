@@ -8,6 +8,11 @@ data class BowlingGame(var score: Int = 0) {
 
         if (currentFrame.firstRoll == null) {
             currentFrame.firstRoll = pins
+
+            if (currentFrameIndex != 0 && frames[currentFrameIndex-1].spareIndicator) {
+                frames[currentFrameIndex - 1].frameTotal = frames[currentFrameIndex - 1].frameTotal!! + pins
+                score += pins
+            }
         } else {
             currentFrame.secondRoll = pins
             currentFrame.frameTotal = currentFrame.firstRoll!! + currentFrame.secondRoll!!

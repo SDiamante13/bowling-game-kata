@@ -7,12 +7,7 @@ data class BowlingGame(var score: Int = 0) {
         currentFrame = frames[currentFrameIndex]
 
         if (currentFrame.firstRoll == null) {
-            currentFrame.firstRoll = pins
-
-            if (currentFrameIndex != 0 && frames[currentFrameIndex-1].spareIndicator) {
-                frames[currentFrameIndex - 1].frameTotal = frames[currentFrameIndex - 1].frameTotal!! + pins
-                score += pins
-            }
+            calculateFirstRoll(pins)
         } else {
             currentFrame.secondRoll = pins
             currentFrame.frameTotal = currentFrame.firstRoll!! + currentFrame.secondRoll!!
@@ -20,6 +15,19 @@ data class BowlingGame(var score: Int = 0) {
             if (currentFrame.frameTotal == 10) currentFrame.spareIndicator = true
             score += currentFrame.frameTotal!!
             currentFrameIndex++
+        }
+    }
+
+    private fun calculateFirstRoll(pins: Int) {
+        currentFrame.firstRoll = pins
+        
+        addSparePinsToTotal(pins)
+    }
+
+    private fun addSparePinsToTotal(pins: Int) {
+        if (currentFrameIndex != 0 && frames[currentFrameIndex - 1].spareIndicator) {
+            frames[currentFrameIndex - 1].frameTotal = frames[currentFrameIndex - 1].frameTotal!! + pins
+            score += pins
         }
     }
 }

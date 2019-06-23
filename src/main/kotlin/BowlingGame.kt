@@ -1,11 +1,13 @@
 data class BowlingGame(var score: Int = 0) {
-    var frame = Frame()
-    var spare: Boolean = false
+    var frames = listOf(Frame(), Frame())
+    var currentFrame: Int = 1
 
     fun roll(pins: Int) {
         score += pins
-        if (pins == 10) frame.frameNumber++
     }
 }
 
-data class Frame(var frameNumber: Int = 1)
+data class Frame(
+    var firstRoll: Int? = null,
+    var secondRoll: Int? = null,
+    var frameTotal: Int? = null)
